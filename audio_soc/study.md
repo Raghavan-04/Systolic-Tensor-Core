@@ -70,9 +70,3 @@ The design was verified using a cycle-accurate simulation flow on macOS.
 
 ---
 
-### Interview "Pro-Tips" for this Document:
-
-* **The "Single-Cycle" Choice:** If asked why you chose single-cycle, explain that it **eliminates pipeline hazards** (data stalls/branch mispredicts), making audio timing perfectly deterministic.
-* **The "RV32I" Choice:** Explain that by staying compatible with a standard ISA (Instruction Set Architecture), you can use the **standard GCC compiler**, which is much more efficient than writing a custom compiler for a non-standard CPU.
-
-**Would you like me to create a "Next Steps" roadmap for this project, such as adding Interrupts or moving into the Back-End (OpenLane) to see how many square millimeters of silicon this would take?**
