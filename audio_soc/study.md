@@ -1,6 +1,6 @@
 
 
-# Technical Specification: Custom RISC-V Audio SoC
+# Custom RISC-V Audio SoC
 
 ## 1. Project Overview
 
