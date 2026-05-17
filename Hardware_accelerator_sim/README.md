@@ -78,14 +78,14 @@ The hardware dynamically evaluates a streaming dot-product equation:
 
 $$\text{Output} = \sum_{i=0}^{n} (A_i \times B_i)$$
 
-Tracing the cycle transitions in **Image 5**:
 
-1. **Cycle 1:** $a\_in = 10\ (`0x000a`)$, $b\_in = 2\ (`0x0002`)$. Product ($20$) calculation completes in Stage 1.
-2. **Cycle 2:** Stage 1 latches product to `mult_reg` ($20$, `0x0014`). Stage 2 accumulates it. Simultaneously, the next inputs arrive: $20\ (`0x0014`) \times 3\ (`0x0003`) = 60$.
-3. **Cycle 3:** Accumulator updates to $20$. New product $60\ (`0x003C`)$ is latched. Next inputs: $30\ (`0x001e`) \times 4\ (`0x0004`) = 120$.
-4. **Retirement:** The system settles cleanly on a final output accumulation value of **`0x000000c8`** ($200$ decimal), verifying both perfect multi-cycle execution latency and structural pipeline integrity.
 
----
+### Tracing the Cycle Transitions (Image 5)
+
+1. **Cycle 1:** `processor.a_in` = 10 (`0x000a`) and `processor.b_in` = 2 (`0x0002`). The initial multiplication calculation (20) completes within Stage 1.
+2. **Cycle 2:** Stage 1 latches the calculated product to `mult_reg` (20, `0x0014`) while Stage 2 begins accumulating it. Simultaneously, the next input pair arrives at the execution core: 20 (`0x0014`) × 3 (`0x0003`) = 60.
+3. **Cycle 3:** The accumulator register updates to 20. The new product of 60 (`0x003C`) is latched into `mult_reg`. The next dataset streams in: 30 (`0x001e`) × 4 (`0x0004`) = 120.
+4. **Retirement:** The system settles cleanly on a final output accumulation value of `0x000000c8` (200 decimal), verifying both perfect multi-cycle execution latency and structural pipeline integrity.
 
 ## Verifying Locally
 
